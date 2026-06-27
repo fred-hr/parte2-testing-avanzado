@@ -1,0 +1,21 @@
+{
+    "training_data": [
+        {
+            "execution": 1,
+            "bugs_detected": 10
+        },
+        {
+            "execution": 2,
+            "bugs_detected": 20
+        },
+        {
+            "execution": 3,
+            "bugs_detected": 30
+        }
+    ],
+    "prediction": {
+        "next_execution": 4,
+        "predicted_bugs": 40.0
+    },
+    "conclusion": "El modelo predictivo estima la cantidad de bugs que podrían detectarse en una futura ejecución según datos históricos."
+}

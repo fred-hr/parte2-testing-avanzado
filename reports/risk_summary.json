@@ -1,0 +1,28 @@
+{
+    "total_cases": 800,
+    "high": 251,
+    "medium": 351,
+    "low": 198,
+    "highest_risk_case": {
+        "username": "unknown",
+        "password": "wrong",
+        "role": "invalid",
+        "device": "unknown",
+        "network": "public",
+        "two_factor_auth": "disabled",
+        "case_id": 608,
+        "risk_score": 16,
+        "risk_level": "high"
+    },
+    "lowest_risk_case": {
+        "username": "guest",
+        "password": "Guest123",
+        "role": "guest",
+        "device": "known",
+        "network": "private",
+        "two_factor_auth": "enabled",
+        "case_id": 401,
+        "risk_score": 0,
+        "risk_level": "low"
+    }
+}
