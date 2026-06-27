@@ -1,0 +1,72 @@
+name: Pipeline de Testing Avanzado
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  testing-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependencias de Python
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Análisis estático con Flake8
+        run: |
+          flake8 src
+
+      - name: Ejecutar pruebas unitarias con Pytest
+        run: |
+          pytest
+
+      - name: Ejecutar cobertura con Pytest-Cov
+        run: |
+          pytest --cov=src --cov-report=term
+
+      - name: Ejecutar pruebas combinatorias
+        run: |
+          python scripts/run_combinatorial_testing.py
+
+      - name: Ejecutar modelo predictivo
+        run: |
+          python scripts/run_predictive_model.py
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Instalar dependencias JavaScript
+        working-directory: testing_tools_demo
+        run: |
+          npm install
+
+      - name: Ejecutar pruebas unitarias con Jasmine
+        working-directory: testing_tools_demo
+        run: |
+          npm test
+
+      - name: Ejecutar cobertura con Istanbul NYC
+        working-directory: testing_tools_demo
+        run: |
+          npm run coverage
+
+      - name: Ejecutar pruebas de mutación con Stryker
+        working-directory: testing_tools_demo
+        run: |
+          npm run mutation

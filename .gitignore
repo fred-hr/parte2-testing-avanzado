@@ -1,0 +1,29 @@
+# Entorno virtual
+venv/
+
+# Caché de Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Reportes de cobertura
+htmlcov/
+.coverage
+
+# Reportes generados
+reports/
+
+# Dependencias de Node.js
+testing_tools_demo/node_modules/
+
+# Archivos del sistema
+.DS_Store
+
+# Archivos temporales de NYC
+testing_tools_demo/.nyc_output/
+
+# Reportes de mutación
+testing_tools_demo/reports/
+
+# Reportes de cobertura
+testing_tools_demo/coverage/

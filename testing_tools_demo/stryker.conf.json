@@ -1,0 +1,7 @@
+{
+  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+  "testRunner": "jasmine",
+  "mutate": ["src/**/*.js"],
+  "reporters": ["progress", "clear-text", "html"],
+  "coverageAnalysis": "off"
+}
